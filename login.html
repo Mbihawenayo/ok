@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Management Login</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Fade-in animation for body */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Login container styling */
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+            animation: slideIn 1s ease-out;
+            border: 2px solid #ddd;
+            user-select: none;
+        }
+
+        /* Slide-in animation for container */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 2em;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Input fields and button styling */
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        /* Focus animation */
+        .form-container input:focus,
+        .form-container button:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 10px rgba(76, 175, 80, 0.2);
+        }
+
+        /* Button styling */
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        /* Error message styling */
+        p {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Login Form -->
+    <div class="login-container">
+        <!-- Company Logo -->
+        <img src="paryad.jpeg" alt="Company Logo" class="logo">
+
+        <h1>Welcome</h1>
+
+        <div class="form-container">
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit">Login</button>
+            </form>
+            <p id="loginError"></p>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+
+        // Default admin credentials for demo purposes (change as needed)
+        const adminUsername = 'ebuwe';
+        const adminPassword = 'ebuwe123';
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Check if the credentials match
+            if (username === adminUsername && password === adminPassword) {
+                // Redirect or show dashboard (optional)
+                // Example: window.location.href = 'dashboard.html'; 
+                window.location.href = 'index.html';
+
+            } else {
+                loginError.textContent = 'Invalid Username or Password';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
